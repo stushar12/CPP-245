@@ -1,12 +1,15 @@
- int numIdenticalPairs(vector<int>& nums) {
-        unordered_map<int, int> m;
-        for(int i: nums)
-            m[i]++;
+int numIdenticalPairs(vector<int>& nums) 
+    {
+        int arr[101]={0};
+        int count=0;
         
-        int cnt = 0;
-        for(auto p: m) 
+        for(int i=0;i<nums.size();i++)
         {
-            cnt += p.second * (p.second-1) / 2;
+            if(arr[nums[i]]!=0) 
+                count=count+arr[nums[i]];
+            
+
+             arr[nums[i]]++;
         }
-        return cnt;
+        return count;
     }
